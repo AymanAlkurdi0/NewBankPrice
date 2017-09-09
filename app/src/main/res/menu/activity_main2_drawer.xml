@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <group
+        android:checkableBehavior="none"
+        app:showAsAction="always">
+
+
+        <item
+            android:id="@+id/nav_pic"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="pic"
+            app:showAsAction="always"/>
+
+        <item
+            android:id="@+id/nav_change"
+            android:icon="@drawable/currency"
+            android:title="change"
+            app:showAsAction="always" />
+
+
+        <item
+            android:id="@+id/nav_curency"
+            android:icon="@drawable/currency"
+            android:title="curency" />
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="setting" />
+
+
+    </group>
+
+    <item android:title="Notivication">
+
+        <menu>
+
+            <group
+                android:checkableBehavior="single"
+                app:showAsAction="always">
+
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Share" />
+                <item
+                    android:id="@+id/nav_send"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Send" />
+
+
+            </group>
+
+        </menu>
+
+    </item>
+
+</menu>

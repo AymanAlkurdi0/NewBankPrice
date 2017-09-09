@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <array name="Banks_name">
+
+        <item>National Bank of Egypt</item>
+        <item>Bank of Alexandria</item>
+        <item>Central Bank of Egypt</item>
+        <item>Arab African International Bank</item>
+        <item>Banque Misr</item>
+        <item>Al Ahli Bank of Kuwait Egypt</item>
+        <item>Banque du Caire</item>
+        <item>Misr Iran Development Bank</item>
+        <item>Bank Audi</item>
+        <item>Abu Dhabi Islamic Bank</item>
+        <item>Arab Bank</item>
+        <item>eg bank</item>
+
+    </array>
+
+    <array name="currency_Name">
+
+        <item>USD - US DOLLAR</item>
+        <item>EUR - EURO </item>
+        <item>GBP - POUND STERLING</item>
+        <item>CAD - CANADIAN DOLLAR</item>
+        <item>DKK - DANISH Krone</item>
+        <item>SEK - SWEDISH KRONA</item>
+        <item>CHF - SWISS FRANC</item>
+        <item>JPY - YENS(100)</item>
+        <item>AUD - AUSTRALIAN DOLLARS</item>
+        <item>KWD - Kuwait DINAR</item>
+        <item>SAR - SAUDI RIALS</item>
+        <item>AED - U.A.E DIRHAM</item>
+        <item>BHD - BAHRAIN DINAR</item>
+        <item>OMR - OMANI RIA</item>
+        <item>QTR - QATAR RIAL</item>
+        <item>JOD - JORDAN DINAR</item>
+
+    </array>
+
+
+
+    <integer-array name="currency_Pic">
+
+        <item>@drawable/usa</item>
+        <item>@drawable/europe</item>
+        <item>@drawable/united_kingdom_</item>
+        <item>@drawable/canda</item>
+        <item>@drawable/dkk</item>
+        <item>@drawable/sek</item>
+        <item>@drawable/chf</item>
+        <item>@drawable/japan</item>
+        <item>@drawable/aud</item>
+        <item>@drawable/kuwait</item>
+        <item>@drawable/saudi</item>
+        <item>@drawable/uae</item>
+        <item>@drawable/bahrain</item>
+        <item>@drawable/oman</item>
+        <item>@drawable/qatar</item>
+        <item>@drawable/jordan</item>
+
+
+
+    </integer-array>
+
+
+</resources>
