@@ -2,6 +2,7 @@ package com.example.egypt2.banksprice.myClass;
 
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,12 +29,14 @@ public class AyPop extends DialogFragment implements View.OnClickListener {
 
         getDialog().setTitle("Select the Currency");
         //get the array form values file
-        String[] array = getResources().getStringArray(R.array.currency_Name);
-
+        String[] array_currency_Name = getResources().getStringArray(R.array.currency_Name);
+        TypedArray arrayList_Curency_image = getResources().obtainTypedArray(R.array.currency_Pic);
         //set the adapter for listView
-        ayAdapterPop adapter = new ayAdapterPop(getContext(), array);
+        ayAdapterPop adapter = new ayAdapterPop(getContext(), array_currency_Name);
         ListView listView = (ListView) view.findViewById(R.id.ayListViewPop);
         listView.setAdapter(adapter);
+
+
         //when the item clicked in pop show
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
