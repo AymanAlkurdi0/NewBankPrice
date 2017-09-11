@@ -30,7 +30,7 @@ public class AyFragment_cur_activity extends Fragment {
         //conroll in view
         ListView listView_activity = (ListView)view.findViewById(R.id.ayListView_currency_activity);
         //create and set the adapter for listView_activity which is in listView_activity
-        adapter_curency_activity my_adapter_curency_activity = new adapter_curency_activity(getContext(),array_currency_Name);
+        ayAdapterPop my_adapter_curency_activity = new ayAdapterPop(getContext(),array_currency_Name);
         listView_activity.setAdapter(my_adapter_curency_activity);
 
         return view;

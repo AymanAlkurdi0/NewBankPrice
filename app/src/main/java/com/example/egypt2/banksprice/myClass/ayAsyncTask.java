@@ -29,7 +29,8 @@ public class ayAsyncTask extends AsyncTask<String, Integer, String>  {
 String JsonString ="";
     String LastApdate ="";
     AyProgressDialog ayProgressDialog = new AyProgressDialog();
-
+    //create ArrayList to put all the object
+    ArrayList<ayINFO> arrayList ;
 
     @Override
     protected void onPreExecute() {
@@ -37,6 +38,15 @@ String JsonString ="";
         //ProgressDialog
         ayProgressDialog.create();
         ayProgressDialog.show();
+        //display process bar
+        //create ArrayList to put all the object
+        arrayList =new ArrayList<ayINFO>();
+        ayINFO myinfo = new ayINFO();
+        myinfo.setType(0);
+        arrayList.add(myinfo);
+        ayUI.setfArrayList(arrayList);
+        ayUI.setLastApdate("witting");
+        ayUI.update();
 
     }
 
@@ -75,8 +85,7 @@ String JsonString ="";
         super.onPostExecute(s);
 
 
-        //create ArrayList to put all the object
-        ArrayList<ayINFO> arrayList =new ArrayList<ayINFO>();
+
 
 
         try {
@@ -84,7 +93,8 @@ String JsonString ="";
             JSONObject jsonObject = new JSONObject(s);
 //get all array which in JSON object and convert to JSON array
             JSONArray jsonArray =jsonObject.getJSONArray("info");
-
+            //create ArrayList to put all the object
+            arrayList =new ArrayList<ayINFO>();
 //take one by one the objects form JSON array
             for(int n = 0; n < jsonArray.length(); n++)
             {
@@ -103,6 +113,8 @@ String JsonString ="";
                 myinfo.setLastUpdata(jsonObject.getString("LastUpdata"));
 //set the last apdate
                 LastApdate=myinfo.getLastUpdata();
+                //set the type of it to diplay curency no process bar
+                myinfo.setType(1);
 //put the node into my past Array list
                 arrayList.add(myinfo);
 

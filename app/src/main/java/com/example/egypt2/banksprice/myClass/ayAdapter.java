@@ -40,19 +40,28 @@ public class ayAdapter extends ArrayAdapter{
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View view = layoutInflater.inflate(R.layout.ay_iitems,parent,false);
-
-        ImageView ayBankImage=(ImageView) view.findViewById(R.id.ayBankImage);
-        TextView ayBankName =(TextView) view.findViewById(R.id.ayBankName);
-        TextView ayBankBuyPrice =(TextView) view.findViewById(R.id.ayBankBuyPrice);
-        TextView ayBankSellPrice =(TextView) view.findViewById(R.id.ayBankSellPrice);
-        LinearLayout linearLayout =(LinearLayout) view.findViewById(R.id.ayLinear);
-
         ayINFO info = (ayINFO) getItem(position);
-        //ayBankImage.setBackground(Drawable.createFromPath("@drawable/bank_icon")); //todo:maybe no working
-        ayBankName.setText(info.getBank_Name());
-        ayBankBuyPrice.setText(info.getBuy());
-        ayBankSellPrice.setText(info.getSell());
+        //two way to return the view if type 0 will display ay_loading_process layout which is the process bar otherwise display the ay_iitems layout for the price
+        if (info.getType()==0){ //display the process bar
+
+            View view = layoutInflater.inflate(R.layout.ay_loading_process,parent,false);
+            return view;
+        }
+        else{ //display the currency
+
+            View view = layoutInflater.inflate(R.layout.ay_iitems,parent,false);
+
+            ImageView ayBankImage=(ImageView) view.findViewById(R.id.ayBankImage);
+            TextView ayBankName =(TextView) view.findViewById(R.id.ayBankName);
+            TextView ayBankBuyPrice =(TextView) view.findViewById(R.id.ayBankBuyPrice);
+            TextView ayBankSellPrice =(TextView) view.findViewById(R.id.ayBankSellPrice);
+            LinearLayout linearLayout =(LinearLayout) view.findViewById(R.id.ayLinear);
+
+
+            //ayBankImage.setBackground(Drawable.createFromPath("@drawable/bank_icon")); //todo:maybe no working
+            ayBankName.setText(info.getBank_Name());
+            ayBankBuyPrice.setText(info.getBuy());
+            ayBankSellPrice.setText(info.getSell());
         /*
         if(position%2==0){
             linearLayout.setBackground(getContext().getResources().getDrawable(R.drawable.ay_item2,null));
@@ -60,10 +69,13 @@ public class ayAdapter extends ArrayAdapter{
             linearLayout.setBackground(getContext().getResources().getDrawable(R.drawable.ay_item1,null));
         }
 */
+            return view;
+        }
 
 
 
 
-        return view;
+
+
     }
 }

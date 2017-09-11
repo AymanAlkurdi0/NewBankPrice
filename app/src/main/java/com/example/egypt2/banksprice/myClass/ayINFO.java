@@ -6,7 +6,16 @@ package com.example.egypt2.banksprice.myClass;
 
 public class ayINFO {
 
+    public void setType(int type) {
+        this.type = type;
+    }
 
+    public int getType() {
+
+        return type;
+    }
+
+    private static int type ;
     private int bank_ID ;
     private String bank_Name ;
     private int currency_ID ;
