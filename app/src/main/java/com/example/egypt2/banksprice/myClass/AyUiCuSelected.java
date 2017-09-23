@@ -23,6 +23,7 @@ public class AyUiCuSelected extends ayUI {
     static ImageView Curency_image;
     int id;
     String[] arrayList_Curency_name = context.getResources().getStringArray(R.array.currency_Name); ;
+    int[] arrayList_Curency_id = context.getResources().getIntArray(R.array.Currency_ID); ;
     TypedArray arrayList_Curency_image = context.getResources().obtainTypedArray(R.array.currency_Pic); ;
 
      AyUiCuSelected(int id) {
@@ -30,12 +31,21 @@ public class AyUiCuSelected extends ayUI {
     }
 
     public void updateCruncy() {
-// get resource ID by index
-        Curency_name.setText(arrayList_Curency_name[id]);
+        String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON_fixed?currency_ID="+arrayList_Curency_id[id];
+        //http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON_fixed?currency_ID=2
+        try {
 
-        Curency_image.setImageResource(arrayList_Curency_image.getResourceId(id, -1));
+            ayAsyncTask task = new ayAsyncTask();
+            task.execute(URL);
+            // get resource ID by index
+            Curency_name.setText(arrayList_Curency_name[id]);
 
+            Curency_image.setImageResource(arrayList_Curency_image.getResourceId(id, -1));
 
+        }catch (Exception e)
+        {
+
+        }
 
         //call method from MainActivity to dismissPop
         MainActivity mainActivity = (MainActivity)context;

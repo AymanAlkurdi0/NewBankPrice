@@ -15,14 +15,16 @@ import java.util.List;
 
 public class ayJobSchedule extends JobService {
     String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON";
+    //Get_value_by_JSON_fixed?currency_ID=21
 
     @Override
     public boolean onStartJob(JobParameters params) {
 
 try {
 
-    ayAsyncTask task = new ayAsyncTask();
-    task.execute(URL);
+    AyUiCuSelected ayUiCuSelected = new AyUiCuSelected(0);
+    ayUiCuSelected.updateCruncy();
+
 
 }catch (Exception e)
 {
