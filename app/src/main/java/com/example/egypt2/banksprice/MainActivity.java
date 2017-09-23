@@ -149,6 +149,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+
     //function for when select item from drawer_layout
     private void selectItemFromDrawer(int position) {
         //set the Fragment to my AyFragment_cur_activity

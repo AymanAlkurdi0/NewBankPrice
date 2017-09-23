@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static com.example.egypt2.banksprice.myClass.ayConverter.convertStreamToString;
 
@@ -123,6 +124,9 @@ String JsonString ="";
 
 
             }
+
+//for sort the arrayList
+            Collections.sort(arrayList, new AySortByRoll());
 
             ayUI.setfArrayList(arrayList);
             ayUI.setLastApdate(LastApdate);
