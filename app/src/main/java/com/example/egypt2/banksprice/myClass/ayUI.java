@@ -10,11 +10,14 @@ import com.example.egypt2.banksprice.R;
 
 import java.util.ArrayList;
 
+import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
+
 /**
  * Created by egypt2 on 8/27/2017.
  */
 
 public class ayUI {
+    public static WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
     public static ArrayList<ayINFO> fArrayList ;
     public static String LastApdate;
     public static Context context;
@@ -32,20 +35,26 @@ public class ayUI {
         View view = layoutInflater.inflate(R.layout.activity_main,null);
         */
 
-        //Notification
-        AyNotification ayNotification = new AyNotification();
-        ayNotification.notify(context,"Up to date",123);
+        //Notification //todo:Notification turn on
+      //  AyNotification ayNotification = new AyNotification();
+       // ayNotification.notify(context,"Up to date",123);
+
+
         //create and set the adapter
 
 
         ayAdapter myayAdapter =new ayAdapter(getContext(),fArrayList);
+
         ayListView.setAdapter(myayAdapter);
         ayLastUpdate.setText("Update : " +  getLastApdate());
+
 
     }
 
 
-
+    public static void  setRefreshingFalse(){
+        mWaveSwipeRefreshLayout.setRefreshing(false); //for refresh tool
+    }
 
 
 

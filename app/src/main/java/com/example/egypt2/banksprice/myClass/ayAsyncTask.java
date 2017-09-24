@@ -36,10 +36,10 @@ String JsonString ="";
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        //ProgressDialog
-        ayProgressDialog.create();
-        ayProgressDialog.show();
-        //display process bar
+        //ProgressDialog //todo:for run the Progress Dialog
+      //  ayProgressDialog.create();
+      //  ayProgressDialog.show(); //display process bar
+
         //create ArrayList to put all the object
         arrayList =new ArrayList<ayINFO>();
         ayINFO myinfo = new ayINFO();
@@ -119,7 +119,7 @@ String JsonString ="";
 //put the node into my past Array list
                 arrayList.add(myinfo);
 
-                onProgressUpdate(100/(jsonArray.length())*(n+1));
+               // onProgressUpdate(100/(jsonArray.length())*(n+1)); todo:for Progress Dialog
 
 
 
@@ -127,11 +127,11 @@ String JsonString ="";
 
 //for sort the arrayList
             Collections.sort(arrayList, new AySortByRoll());
-
+//send the adata to UI class
             ayUI.setfArrayList(arrayList);
             ayUI.setLastApdate(LastApdate);
             ayUI.update();
-
+            ayUI.setRefreshingFalse();
             isDataComplete=true;
 
 

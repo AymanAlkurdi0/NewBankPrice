@@ -48,12 +48,15 @@ import com.example.egypt2.banksprice.myClass.ayUI;
 
 import java.util.ArrayList;
 
+import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
+
 public class MainActivity extends AppCompatActivity {
     TextView ayLastUpdate,Curency_name;
     ListView ayListView;
     ImageView Curency_image;
     RelativeLayout RelativeLayout_DrawerLayout;
     DrawerLayout DrawerLayout;
+    WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
     String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON";
     int JobNumber =123;
     @Override
@@ -65,16 +68,28 @@ public class MainActivity extends AppCompatActivity {
         ayListView = (ListView) findViewById(R.id.ayListView);
         Curency_name = (TextView) findViewById(R.id.Curency_name);
         Curency_image = (ImageView) findViewById(R.id.Curency_image);
+        mWaveSwipeRefreshLayout = (WaveSwipeRefreshLayout) findViewById(R.id.main_swipe);
 //************************************************************************
 
 
         //Set the attribute for UI class
-        ayUI.setContext(this);ayUI.setAyListView(ayListView); ayUI.setAyLastUpdate(ayLastUpdate);
+        ayUI.setContext(this);ayUI.setAyListView(ayListView); ayUI.setAyLastUpdate(ayLastUpdate);ayUI.mWaveSwipeRefreshLayout=mWaveSwipeRefreshLayout;
         AyUiCuSelected.setCurency_name(Curency_name); AyUiCuSelected.setCurency_image(Curency_image);
         //Set the attribute for AyProgressDialog class
         AyProgressDialog.context=this;
 
-
+//***********************************************************************************
+        //refresh tools
+        mWaveSwipeRefreshLayout.setOnRefreshListener(new WaveSwipeRefreshLayout.OnRefreshListener() {
+            @Override public void onRefresh() {
+                //send the BroadCast
+                Intent i = new Intent();
+                i.setAction("android.intent.data.complete");
+                i.putExtra("URL",URL);
+                sendBroadcast(i);
+            }
+        });
+//*********************************************************************
        //************************************************************************************************************************************************************************
         //set drawer tools
         //conecet with UI

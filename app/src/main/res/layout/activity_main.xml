@@ -64,6 +64,13 @@
                 android:textSize="20dp" />
         </LinearLayout>
 
+
+        <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_swipe">
+
+
         <ListView
             android:id="@+id/ayListView"
             android:layout_width="match_parent"
@@ -71,6 +78,10 @@
             android:padding="2dp"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
+
+        </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
+
+
     </LinearLayout>
 
 
