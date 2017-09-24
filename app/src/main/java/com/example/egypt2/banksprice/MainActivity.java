@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
@@ -232,7 +234,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
 //End Menu Code
+
+
 
 
 }
