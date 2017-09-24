@@ -21,16 +21,21 @@ public class AyUiCuSelected extends ayUI {
 
     static TextView Curency_name;
     static ImageView Curency_image;
+
     int id;
+
     String[] arrayList_Curency_name = context.getResources().getStringArray(R.array.currency_Name); ;
     int[] arrayList_Curency_id = context.getResources().getIntArray(R.array.Currency_ID); ;
     TypedArray arrayList_Curency_image = context.getResources().obtainTypedArray(R.array.currency_Pic); ;
 
      AyUiCuSelected(int id) {
         this.id = id;
+
+         AySharedPreferences.save(id); // to save the ID which represent to the selected Curency
     }
 
     public void updateCruncy() {
+
         String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON_fixed?currency_ID="+arrayList_Curency_id[id];
         //http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON_fixed?currency_ID=2
         try {

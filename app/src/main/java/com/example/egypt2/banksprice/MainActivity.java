@@ -8,6 +8,7 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -40,6 +41,7 @@ import com.example.egypt2.banksprice.myClass.AyINFO_Drawer_layout;
 import com.example.egypt2.banksprice.myClass.AyNotification;
 import com.example.egypt2.banksprice.myClass.AyPop;
 import com.example.egypt2.banksprice.myClass.AyProgressDialog;
+import com.example.egypt2.banksprice.myClass.AySharedPreferences;
 import com.example.egypt2.banksprice.myClass.AyUiCuSelected;
 import com.example.egypt2.banksprice.myClass.DrawerListAdapter;
 import com.example.egypt2.banksprice.myClass.ayAsyncTask;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout RelativeLayout_DrawerLayout;
     DrawerLayout DrawerLayout;
     WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
+    SharedPreferences sharedPreferences;
     String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON";
     int JobNumber =123;
     @Override
@@ -69,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
         Curency_name = (TextView) findViewById(R.id.Curency_name);
         Curency_image = (ImageView) findViewById(R.id.Curency_image);
         mWaveSwipeRefreshLayout = (WaveSwipeRefreshLayout) findViewById(R.id.main_swipe);
+        sharedPreferences = getSharedPreferences("MySetting",Context.MODE_PRIVATE);
 //************************************************************************
-
+//set the SharedPreferences to AySharedPreferences.class
+        AySharedPreferences.sharedPreferences=sharedPreferences;
 
         //Set the attribute for UI class
         ayUI.setContext(this);ayUI.setAyListView(ayListView); ayUI.setAyLastUpdate(ayLastUpdate);ayUI.mWaveSwipeRefreshLayout=mWaveSwipeRefreshLayout;
@@ -85,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 //send the BroadCast
                 Intent i = new Intent();
                 i.setAction("android.intent.data.complete");
-                i.putExtra("URL",URL);
                 sendBroadcast(i);
             }
         });

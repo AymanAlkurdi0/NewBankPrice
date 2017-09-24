@@ -14,8 +14,17 @@ public class ayBroadCast extends BroadcastReceiver {
 
         if (intent.getAction().equals("android.intent.data.complete"))
         {
-            ayAsyncTask task = new ayAsyncTask();
-            task.execute(intent.getExtras().getString("URL"));
+            int ID=  AySharedPreferences.load(); //to load the old ID or last ID and passing to AyUiCuSelected.class
+            try {
+
+                AyUiCuSelected ayUiCuSelected = new AyUiCuSelected(ID);
+                ayUiCuSelected.updateCruncy();
+
+
+            }catch (Exception e)
+            {
+
+            }
         }
 
 

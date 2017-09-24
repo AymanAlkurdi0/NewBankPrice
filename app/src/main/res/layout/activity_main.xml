@@ -48,7 +48,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="11dp"
                 android:layout_weight="0.05"
-                app:srcCompat="@drawable/europe" />
+                app:srcCompat="@drawable/usa" />
 
             <TextView
                 android:textDirection="firstStrong"

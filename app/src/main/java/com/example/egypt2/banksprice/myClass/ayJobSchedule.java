@@ -14,15 +14,14 @@ import java.util.List;
  */
 
 public class ayJobSchedule extends JobService {
-    String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON";
-    //Get_value_by_JSON_fixed?currency_ID=21
+    int ID;
 
     @Override
     public boolean onStartJob(JobParameters params) {
-
+        ID=  AySharedPreferences.load(); //to load the old ID or last ID and passing to AyUiCuSelected.class
 try {
 
-    AyUiCuSelected ayUiCuSelected = new AyUiCuSelected(0);
+    AyUiCuSelected ayUiCuSelected = new AyUiCuSelected(ID);
     ayUiCuSelected.updateCruncy();
 
 
