@@ -134,14 +134,20 @@ public class MainActivity extends AppCompatActivity {
         //************************************************************************************************************************************************
         // two Solution
 
-/*
-        //send the BroadCast
-        Intent i = new Intent();
-        i.setAction("android.intent.data.complete");
-        i.putExtra("URL",URL);
-        sendBroadcast(i);
 
-*/
+         int ID=  AySharedPreferences.load(); //to load the old ID or last ID and passing to AyUiCuSelected.class
+            try {
+
+                AyUiCuSelected ayUiCuSelected = new AyUiCuSelected(ID);
+                ayUiCuSelected.updateCruncy();
+
+
+            }catch (Exception e)
+            {
+
+            }
+
+/*
         //.........................................................................
 
         //crate JobScheduler
@@ -158,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+*/
 
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -35,7 +36,6 @@ public class AyPop extends DialogFragment implements View.OnClickListener {
         ayAdapterPop adapter = new ayAdapterPop(getContext(), array_currency_Name);
         ListView listView = (ListView) view.findViewById(R.id.ayListViewPop);
         listView.setAdapter(adapter);
-
 
         //when the item clicked in pop show
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

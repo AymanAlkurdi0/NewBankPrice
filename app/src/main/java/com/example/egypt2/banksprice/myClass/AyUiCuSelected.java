@@ -32,7 +32,7 @@ public class AyUiCuSelected extends ayUI {
     int[] arrayList_Curency_id = context.getResources().getIntArray(R.array.Currency_ID);
     TypedArray arrayList_Curency_image = context.getResources().obtainTypedArray(R.array.currency_Pic);
 
-     AyUiCuSelected(int id) {
+     public AyUiCuSelected(int id) {
         this.id = id;
 
          AySharedPreferences.save(id); // to save the ID which represent to the selected Curency
