@@ -1,6 +1,7 @@
 package com.example.egypt2.banksprice.myClass;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.annotation.DrawableRes;
@@ -38,6 +39,8 @@ public class ayAdapter extends ArrayAdapter{
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        TypedArray arrayList_Bank_image = getContext().getResources().obtainTypedArray(R.array.Banks_Pic); ; // get image R
+
 
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         ayINFO info = (ayINFO) getItem(position);
@@ -58,10 +61,12 @@ public class ayAdapter extends ArrayAdapter{
             LinearLayout linearLayout =(LinearLayout) view.findViewById(R.id.ayLinear);
 
 
-            //ayBankImage.setBackground(Drawable.createFromPath("@drawable/bank_icon")); //todo:maybe no working
+            //*******************************************************
+            ayBankImage.setImageResource(arrayList_Bank_image.getResourceId(info.getBank_ID()-1 , 15)); // set image for banks from arrayList_Bank_image Resources
             ayBankName.setText(info.getBank_Name());
             ayBankBuyPrice.setText(info.getBuy());
             ayBankSellPrice.setText(info.getSell());
+            //for change the color beteen the items in listView
         /*
         if(position%2==0){
             linearLayout.setBackground(getContext().getResources().getDrawable(R.drawable.ay_item2,null));
@@ -73,9 +78,6 @@ public class ayAdapter extends ArrayAdapter{
         }
 
 
-
-
-
-
     }
+
 }

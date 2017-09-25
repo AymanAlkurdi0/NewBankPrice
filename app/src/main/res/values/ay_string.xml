@@ -19,6 +19,27 @@
 
     </array>
 
+    <integer-array name="Banks_Pic">
+
+        <item>@drawable/national_bank_of_egypt</item>
+        <item>@drawable/qatar</item>
+        <item>@drawable/alex_bank</item>
+        <item>@drawable/central_bank_of_egypt</item>
+        <item>@drawable/cib</item>
+        <item>@drawable/arab_african_international_bank</item>
+        <item>@drawable/banque_misr</item>
+        <item>@drawable/ahli_bank_of_kuwait_egypt</item>
+        <item>@drawable/banque_du_caire</item>
+        <item>@drawable/egypt_iran</item>
+        <item>@drawable/audi</item>
+        <item>@drawable/abu_dhabi_islamic_bank</item>
+        <item>@drawable/arab_bank</item>
+        <item>@drawable/eg_bank</item>
+        <item>@drawable/bank_icon</item>
+
+
+    </integer-array>
+
     <array name="currency_Name">
 
         <item>USD - US DOLLAR</item>

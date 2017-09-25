@@ -28,9 +28,9 @@ public class AyUiCuSelected extends ayUI {
 
     int id;
 
-    String[] arrayList_Curency_name = context.getResources().getStringArray(R.array.currency_Name); ;
-    int[] arrayList_Curency_id = context.getResources().getIntArray(R.array.Currency_ID); ;
-    TypedArray arrayList_Curency_image = context.getResources().obtainTypedArray(R.array.currency_Pic); ;
+    String[] arrayList_Curency_name = context.getResources().getStringArray(R.array.currency_Name);
+    int[] arrayList_Curency_id = context.getResources().getIntArray(R.array.Currency_ID);
+    TypedArray arrayList_Curency_image = context.getResources().obtainTypedArray(R.array.currency_Pic);
 
      AyUiCuSelected(int id) {
         this.id = id;
