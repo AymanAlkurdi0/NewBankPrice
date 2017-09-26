@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
     public void header_cruncey_sort_button(View view) {
 
 
-
+        ayUI.Sort_Update();
     }
 
 

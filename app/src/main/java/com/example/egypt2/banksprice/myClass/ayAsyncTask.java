@@ -126,7 +126,7 @@ String JsonString ="";
             }
 
 //for sort the arrayList
-            Collections.sort(arrayList, new AySortByRoll());
+          //  Collections.sort(arrayList, new AySortByRoll());
 //send the adata to UI class
             ayUI.setfArrayList(arrayList);
             ayUI.setLastApdate(LastApdate);

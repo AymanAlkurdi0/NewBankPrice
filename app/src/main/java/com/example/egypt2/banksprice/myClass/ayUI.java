@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.egypt2.banksprice.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 
@@ -23,7 +24,7 @@ public class ayUI {
     public static Context context;
     static ListView ayListView;
     static TextView ayLastUpdate;
-
+    static ayAdapter myayAdapter;
 
 
 
@@ -41,11 +42,19 @@ public class ayUI {
 
 
         //create and set the adapter
-        ayAdapter myayAdapter =new ayAdapter(getContext(),fArrayList);
+        myayAdapter =new ayAdapter(getContext(),fArrayList);
         ayListView.setAdapter(myayAdapter);
         ayLastUpdate.setText("Update : " +  getLastApdate());
 
 
+
+    }
+//function for sort the item in list view todo: Edite this function to make it call pop activity for selecte more then one style sorting
+    public static  void Sort_Update()
+    {
+        //
+        Collections.sort(fArrayList, new AySortByRoll());
+        myayAdapter.notifyDataSetChanged();
     }
 
 
