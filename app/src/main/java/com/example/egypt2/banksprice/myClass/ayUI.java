@@ -41,10 +41,7 @@ public class ayUI {
 
 
         //create and set the adapter
-
-
         ayAdapter myayAdapter =new ayAdapter(getContext(),fArrayList);
-
         ayListView.setAdapter(myayAdapter);
         ayLastUpdate.setText("Update : " +  getLastApdate());
 

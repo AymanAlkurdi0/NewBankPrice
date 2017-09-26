@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.egypt2.banksprice.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
@@ -64,8 +65,12 @@ public class ayAdapter extends ArrayAdapter{
             //*******************************************************
             ayBankImage.setImageResource(arrayList_Bank_image.getResourceId(info.getBank_ID()-1 , 15)); // set image for banks from arrayList_Bank_image Resources
             ayBankName.setText(info.getBank_Name());
-            ayBankBuyPrice.setText(info.getBuy());
-            ayBankSellPrice.setText(info.getSell());
+            ayBankBuyPrice.setText(String.format("%.3f",Float.valueOf( info.getBuy()))); //convert the price to 3 numbers after point .###
+            ayBankSellPrice.setText(String.format("%.3f",Float.valueOf(info.getSell())));
+
+
+
+
             //for change the color beteen the items in listView
         /*
         if(position%2==0){

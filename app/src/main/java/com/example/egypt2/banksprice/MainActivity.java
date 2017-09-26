@@ -71,10 +71,17 @@ public class MainActivity extends AppCompatActivity {
 
         ayLastUpdate = (TextView) findViewById(R.id.ayLastUpdate);
         ayListView = (ListView) findViewById(R.id.ayListView);
-        Curency_name = (TextView) findViewById(R.id.Curency_name);
-        Curency_image = (ImageView) findViewById(R.id.Curency_image);
+        Curency_name = (TextView) findViewById(R.id.header_cruncey_name);
+        Curency_image = (ImageView) findViewById(R.id.header_cruncey_image);
         mWaveSwipeRefreshLayout = (WaveSwipeRefreshLayout) findViewById(R.id.main_swipe);
         sharedPreferences = getSharedPreferences("MySetting",Context.MODE_PRIVATE);
+        //***********************************************
+        //Header of list view Price
+   /*     LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.header_of_list_view_price,null);
+        ayListView.addHeaderView(view);
+        Curency_name = (TextView) view.findViewById(R.id.header_cruncey_name);
+        Curency_image = (ImageView) view.findViewById(R.id.header_cruncey_image);*/
 //************************************************************************
 //set the SharedPreferences to AySharedPreferences.class
         AySharedPreferences.sharedPreferences=sharedPreferences;
@@ -198,13 +205,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     AyPop ayPop;
+    android.app.FragmentManager manager = getFragmentManager();
     //method to can dismissPop from any Class
     public void dismissPop(){
     ayPop.dismiss();
 }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        android.app.FragmentManager manager = getFragmentManager();
+
 
         switch (item.getItemId()){
             case R.id.nav_change:
@@ -239,7 +247,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void header_cruncey_image(View view) {
+        //Pop Activity
+        ayPop = new AyPop();
+        ayPop.show(manager,null);
 
+    }
+
+    public void header_cruncey_sort_button(View view) {
+
+
+
+    }
 
 
 //End Menu Code
