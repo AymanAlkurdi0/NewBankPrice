@@ -52,7 +52,7 @@ public class ayUI {
 //function for sort the item in list view todo: Edite this function to make it call pop activity for selecte more then one style sorting
     public static  void Sort_Update()
     {
-        //
+        //sort block
         Collections.sort(fArrayList, new AySortByRoll());
         myayAdapter.notifyDataSetChanged();
     }

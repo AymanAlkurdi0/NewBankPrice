@@ -59,7 +59,7 @@
                 android:textStyle="italic"
                 android:textColor="@color/black"
                 android:id="@+id/header_cruncey_name"
-                android:layout_width="100dp"
+                android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -67,6 +67,7 @@
                 android:textSize="17dp"
                 android:text="USA - US Dollar "
                 android:onClick="header_cruncey_image"/>
+
 
             <TextView
                 android:textDirection="firstStrong"
@@ -76,11 +77,20 @@
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:text="Buy"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                />
+            <Button
+                android:id="@+id/header_cruncey_sort_button_buy"
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:background="@drawable/swap_vert_black_27x27"
+                android:padding="5dp"
+                android:onClick="header_cruncey_sort_button_buy"/>
 
             <TextView
                 android:textDirection="firstStrong"
@@ -89,7 +99,6 @@
                 android:id="@+id/header_cruncey_sell"
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:padding="5dp"
@@ -97,15 +106,14 @@
                 android:textSize="20dp" />
 
             <Button
-                android:id="@+id/header_cruncey_sort_button"
+                android:id="@+id/header_cruncey_sort_button_sell"
                 android:layout_width="2dp"
                 android:layout_height="15dp"
                 android:layout_gravity="center"
-                android:layout_margin="3dp"
-                android:layout_weight="0.8"
+                android:layout_weight="0.5"
                 android:background="@drawable/swap_vert_black_27x27"
                 android:padding="5dp"
-                android:onClick="header_cruncey_sort_button"/>
+                android:onClick="header_cruncey_sort_button_sell"/>
         </LinearLayout>
 
         <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout

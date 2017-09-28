@@ -23,6 +23,7 @@ import com.example.egypt2.banksprice.myClass.AyINFO_Drawer_layout;
 import com.example.egypt2.banksprice.myClass.AyPop;
 import com.example.egypt2.banksprice.myClass.AyProgressDialog;
 import com.example.egypt2.banksprice.myClass.AySharedPreferences;
+import com.example.egypt2.banksprice.myClass.AySortByRoll;
 import com.example.egypt2.banksprice.myClass.AyUiCuSelected;
 import com.example.egypt2.banksprice.myClass.DrawerListAdapter;
 import com.example.egypt2.banksprice.myClass.ayUI;
@@ -267,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
     public void dismissPop(){
         ayPop.dismiss();
     }
+
     public void header_cruncey_image(View view) {
         //Pop Activity
         ayPop = new AyPop();
@@ -274,9 +276,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void header_cruncey_sort_button(View view) {
+    public void header_cruncey_sort_button_buy(View view) {
+        AySortByRoll.setModeNumberTarget(0);
+        if (AySortByRoll.getModeNumberSort()==0){
+            AySortByRoll.setModeNumberSort(1);
+        }else{
+            AySortByRoll.setModeNumberSort(0);
+        }
+        ayUI.Sort_Update();
+    }
 
+    public void header_cruncey_sort_button_sell(View view) {
+        AySortByRoll.setModeNumberTarget(1);
 
+        if (AySortByRoll.getModeNumberSort()==0){
+            AySortByRoll.setModeNumberSort(1);
+        }else{
+            AySortByRoll.setModeNumberSort(0);
+        }
         ayUI.Sort_Update();
     }
     public void refresh_price_boradCast() {
