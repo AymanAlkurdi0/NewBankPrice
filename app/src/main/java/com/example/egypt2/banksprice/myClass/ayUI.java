@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.egypt2.banksprice.R;
 
@@ -55,6 +56,10 @@ public class ayUI {
         //sort block
         Collections.sort(fArrayList, new AySortByRoll());
         myayAdapter.notifyDataSetChanged();
+        if (AySortByRoll.getModeNumberSort()==1)
+            Toast.makeText(getContext(), "Sorted from High To Low", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getContext(), "Sorted from Low To High", Toast.LENGTH_SHORT).show();
     }
 
 
