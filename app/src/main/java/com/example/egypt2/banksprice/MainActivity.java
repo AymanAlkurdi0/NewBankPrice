@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON";
     int JobNumber =123;
+    LinearLayout header_linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         Curency_image = (ImageView) findViewById(R.id.header_cruncey_image);
         mWaveSwipeRefreshLayout = (WaveSwipeRefreshLayout) findViewById(R.id.main_swipe);
         sharedPreferences = getSharedPreferences("MySetting",Context.MODE_PRIVATE);
+        header_linearLayout = (LinearLayout) findViewById(R.id.header_main_cure_price) ;
+        header_linearLayout.setBackground(getResources().getDrawable(R.drawable.header_layout,null));
         //***********************************************
         //Header of list view Price
    /*     LayoutInflater layoutInflater = LayoutInflater.from(this);

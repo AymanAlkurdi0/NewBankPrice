@@ -40,7 +40,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/header_main_cure_price">
 
             <ImageView
                 android:id="@+id/header_cruncey_image"
