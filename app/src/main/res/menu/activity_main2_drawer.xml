@@ -4,21 +4,27 @@
 
 
 
-
     <group
         android:checkableBehavior="none"
         app:showAsAction="always">
+        <item
+            android:id="@+id/action_name"
+            android:icon="@drawable/ic_menu"
+            android:title="Text to be seen by user"
+            app:showAsAction="always"
+            android:orderInCategory="0"/>
+
 
 
         <item
             android:id="@+id/nav_pic"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_photo_camera_white_24dp"
             android:title="pic"
             app:showAsAction="always"/>
 
         <item
             android:id="@+id/nav_change"
-            android:icon="@drawable/currency"
+            android:icon="@drawable/ic_currency_exchange"
             android:title="change"
             app:showAsAction="always" />
 

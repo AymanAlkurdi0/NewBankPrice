@@ -19,6 +19,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -56,6 +58,8 @@ import java.util.ArrayList;
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 
 public class MainActivity extends AppCompatActivity {
+    AyPop ayPop;
+    android.app.FragmentManager manager = getFragmentManager();
     TextView ayLastUpdate,Curency_name;
     ListView ayListView;
     ImageView Curency_image;
@@ -70,6 +74,41 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //**************************************************************
+//menu_header_custom
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowHomeEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(false);
+        LayoutInflater li = LayoutInflater.from(this);
+        View customView = li.inflate(R.layout.header_menu, null);
+        mActionBar.setCustomView(customView);
+        mActionBar.setDisplayShowCustomEnabled(true);
+
+        ImageButton menu_header_open_menu = (ImageButton)    customView.findViewById(R.id.menu_header_open_menu);
+        menu_header_open_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // ...
+            }
+        });
+
+        ImageButton menu_header_currency_exchange = (ImageButton) customView.findViewById(R.id.menu_header_currency_exchange);
+        menu_header_currency_exchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ayPop = new AyPop();
+                ayPop.show(manager,null);
+            }
+        });
+        ImageButton menu_header_photo_camera = (ImageButton) customView.findViewById(R.id.menu_header_photo_camera);
+        menu_header_photo_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // ...
+            }
+        });
+
+        //**************************************************************
 
         ayLastUpdate = (TextView) findViewById(R.id.ayLastUpdate);
         ayListView = (ListView) findViewById(R.id.ayListView);
@@ -201,6 +240,8 @@ public class MainActivity extends AppCompatActivity {
 //to close RelativeLayout
         DrawerLayout.closeDrawer(RelativeLayout_DrawerLayout);
     }
+
+    /*
 //Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -208,12 +249,9 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-    AyPop ayPop;
-    android.app.FragmentManager manager = getFragmentManager();
-    //method to can dismissPop from any Class
-    public void dismissPop(){
-    ayPop.dismiss();
-}
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -250,7 +288,12 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-
+*/
+//End Menu Code
+    //method to can dismissPop from any Class
+    public void dismissPop(){
+        ayPop.dismiss();
+    }
     public void header_cruncey_image(View view) {
         //Pop Activity
         ayPop = new AyPop();
@@ -265,7 +308,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//End Menu Code
 
 
 
