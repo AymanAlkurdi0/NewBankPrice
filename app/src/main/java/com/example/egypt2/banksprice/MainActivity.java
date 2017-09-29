@@ -22,10 +22,12 @@ import com.example.egypt2.banksprice.myClass.AyFragment_cur_activity;
 import com.example.egypt2.banksprice.myClass.AyINFO_Drawer_layout;
 import com.example.egypt2.banksprice.myClass.AyPop;
 import com.example.egypt2.banksprice.myClass.AyProgressDialog;
+import com.example.egypt2.banksprice.myClass.AySQLdb;
 import com.example.egypt2.banksprice.myClass.AySharedPreferences;
 import com.example.egypt2.banksprice.myClass.AySortByRoll;
 import com.example.egypt2.banksprice.myClass.AyUiCuSelected;
 import com.example.egypt2.banksprice.myClass.DrawerListAdapter;
+import com.example.egypt2.banksprice.myClass.ayAsyncTask;
 import com.example.egypt2.banksprice.myClass.ayUI;
 import java.util.ArrayList;
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
@@ -102,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
 //************************************************************************
 //set the SharedPreferences to AySharedPreferences.class
         AySharedPreferences.sharedPreferences=sharedPreferences;
-
         //Set the attribute for UI class
         ayUI.setContext(this);ayUI.setAyListView(ayListView); ayUI.setAyLastUpdate(ayLastUpdate);ayUI.mWaveSwipeRefreshLayout=mWaveSwipeRefreshLayout;
         AyUiCuSelected.setCurency_name(Curency_name); AyUiCuSelected.setCurency_image(Curency_image);
@@ -180,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //************************************************************************************************************************************************
+
+
 
 
     }

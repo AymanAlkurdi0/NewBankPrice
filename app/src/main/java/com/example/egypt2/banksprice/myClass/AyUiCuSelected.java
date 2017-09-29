@@ -34,45 +34,43 @@ public class AyUiCuSelected extends ayUI {
 
      public AyUiCuSelected(int id) {
         this.id = id;
-
-         AySharedPreferences.save(id); // to save the ID which represent to the selected Curency
     }
 
     public void updateCruncy() {
 
-        String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON_fixed?currency_ID="+arrayList_Curency_id[id];
 
         //to check from internet connection by using isConnected() function
         if (isConnected()){
             try {
+                // get resource ID by index
+                String URL ="http://aymanalkurdi002-001-site1.gtempurl.com/Price.asmx/Get_value_by_JSON_fixed?currency_ID="+arrayList_Curency_id[id];
 
                 ayAsyncTask task = new ayAsyncTask();
                 task.execute(URL);
-                // get resource ID by index
-                Curency_name.setText(arrayList_Curency_name[id]);
 
-                Curency_image.setImageResource(arrayList_Curency_image.getResourceId(id, -1));
-
+                AySharedPreferences.save(id);
             }catch (Exception e)
             {
+                Any_Erorr();
 
             }
         }
         else{
-            ayUI.setRefreshingFalse();
-            Toast.makeText(context, "Please check your internet connection", Toast.LENGTH_SHORT).show();
+            Any_Erorr();
         }
+        //set the image and name of Currency
+        Curency_name.setText(arrayList_Curency_name[id]);
+        Curency_image.setImageResource(arrayList_Curency_image.getResourceId(id, -1));
 
-
-        //call method from MainActivity to dismissPop
+        ayUI.setRefreshingFalse();
+        //call method from MainActivity to dismissPop and setRefreshingFalse
         MainActivity mainActivity = (MainActivity)context;
         mainActivity.dismissPop();
 
+
     }
 
-
 //to check from internet connection
-
     public boolean isConnected(){
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -81,7 +79,15 @@ public class AyUiCuSelected extends ayUI {
         boolean isConnected = activeNetwork != null &&  activeNetwork.isConnectedOrConnecting();
         return isConnected;
     }
+    private void Any_Erorr()
+    {
+        Toast.makeText(context, "Please check your internet connection", Toast.LENGTH_SHORT).show();
+        //to load the old ID or last ID and passing to AyUiCuSelected.class
+        id =   AySharedPreferences.load();
+        //load data from SQL
+        Load_Array_List_From_SQL(id);
 
+    }
 
 
 

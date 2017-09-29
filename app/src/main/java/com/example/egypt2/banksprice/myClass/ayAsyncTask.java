@@ -133,7 +133,7 @@ String JsonString ="";
             ayUI.update();
             ayUI.setRefreshingFalse();
             isDataComplete=true;
-
+            ayUI.InsertArrayListIntoSQL();
 
 
 

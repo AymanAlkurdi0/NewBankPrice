@@ -19,6 +19,7 @@ import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
  */
 
 public class ayUI {
+    public static AySQLdb aySQLdb;
     public static WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
     public static ArrayList<ayINFO> fArrayList ;
     public static String LastApdate;
@@ -47,6 +48,10 @@ public class ayUI {
         ayListView.setAdapter(myayAdapter);
         ayLastUpdate.setText("Update : " +  getLastApdate());
 
+//**************************************************************************
+
+
+
 
 
     }
@@ -66,6 +71,34 @@ public class ayUI {
     public static void  setRefreshingFalse(){
         mWaveSwipeRefreshLayout.setRefreshing(false); //for refresh tool
     }
+
+    //for Insert array in SQL
+    public static void InsertArrayListIntoSQL(){
+        aySQLdb = new AySQLdb(getContext());
+        aySQLdb.Iscreated=true;
+        aySQLdb.InsertArray(fArrayList);
+        fArrayList= aySQLdb.GetData();
+
+        //create and set the adapter
+        myayAdapter =new ayAdapter(getContext(),fArrayList);
+        ayListView.setAdapter(myayAdapter);
+        ayLastUpdate.setText("Update : " +  getLastApdate());
+
+    }
+
+    //for load Array list from SQL
+    public static void Load_Array_List_From_SQL(int id){
+
+        aySQLdb = new AySQLdb(getContext());
+        if (id!=-1){
+            //create and set the adapter
+            fArrayList= aySQLdb.GetData();
+            myayAdapter =new ayAdapter(getContext(),fArrayList);
+            ayListView.setAdapter(myayAdapter);
+            ayLastUpdate.setText("Update : " +  getLastApdate());
+        }
+    }
+
 
 
 
