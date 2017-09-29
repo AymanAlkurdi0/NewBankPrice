@@ -4,74 +4,88 @@
     android:layout_height="?attr/actionBarSize"
 >
 
-    <ImageButton android:src="@drawable/ic_menu_white_24dp"
-        android:background="?attr/actionBarItemBackground"
-        android:id="@+id/menu_header_open_menu"
-        android:layout_width="?attr/actionBarSize"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingTop="2dp"
-        android:scaleType="center"
-        android:text="Menu"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:paddingStart="-15dp"
-        android:layout_marginBottom="5dp"
-        android:layout_alignParentStart="true"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/menu_header_open_menu"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp"
+            android:background="?attr/actionBarItemBackground"
+            android:paddingStart="-5dp"
+            android:paddingTop="2dp"
+            android:scaleType="center"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:src="@drawable/ic_menu_white_24dp"
+            android:text="Menu"
+            android:layout_weight="0"/>
 
 
-    <TextView
-        android:textDirection="firstStrong"
-        android:textStyle="bold"
-        android:id="@+id/menu_header_name_text"
-        android:layout_width="100dp"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingStart="-1dp"
-        android:background="?attr/actionBarItemBackground"
-        android:paddingTop="5dp"
-        android:scaleType="centerInside"
-        android:text="Currency Exchange"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        <TextView
+            android:id="@+id/menu_header_name_text"
+            android:layout_width="100dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/menu_header_open_menu"
+            android:layout_weight="0"
+            android:background="?attr/actionBarItemBackground"
+            android:paddingTop="5dp"
+            android:scaleType="centerInside"
+            android:text="Currency Exchange"
+            android:textColor="@color/white"
+            android:textDirection="firstStrong"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/menu_header_open_menu" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
-    <ImageButton
-        android:src="@drawable/ic_photo_camera_white_24dp"
-        android:id="@+id/menu_header_photo_camera"
-        android:layout_width="?attr/actionBarSize"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/actionBarItemBackground"
-        android:scaleType="centerInside"
-        android:text="currency exchange"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/menu_header_currency_refresh" />
+        <ImageButton
+            android:id="@+id/menu_header_photo_camera"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/menu_header_currency_refresh"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_photo_camera_white_24dp"
+            android:layout_weight="0"
+            />
 
-    <ImageButton
-        android:src="@drawable/ic_refresh_white_24dp"
-        android:id="@+id/menu_header_currency_refresh"
-        android:layout_width="?attr/actionBarSize"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/actionBarItemBackground"
-        android:scaleType="centerInside"
-        android:text="currency exchange"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        android:layout_toStartOf="@+id/menu_header_currency_exchange"
-        />
+        <ImageButton
+            android:id="@+id/menu_header_currency_refresh"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_toStartOf="@+id/menu_header_currency_exchange"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="centerInside"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:src="@drawable/ic_refresh_white_24dp"
+            android:text="currency exchange"
+            android:layout_weight="0"/>
 
-    <ImageButton
-        android:src="@mipmap/ic_currency_exchange"
-        android:id="@+id/menu_header_currency_exchange"
-        android:background="?attr/actionBarItemBackground"
-        android:layout_width="?attr/actionBarSize"
-        android:layout_height="?attr/actionBarSize"
-        android:scaleType="centerInside"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        <ImageButton
+            android:id="@+id/menu_header_currency_exchange"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_currency_exchange"
+            android:layout_weight="0"/>
 
 
-
+    </LinearLayout>
 
 </RelativeLayout>
