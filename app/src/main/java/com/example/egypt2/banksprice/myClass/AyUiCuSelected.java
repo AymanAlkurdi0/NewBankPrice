@@ -64,8 +64,7 @@ public class AyUiCuSelected extends ayUI {
 
         ayUI.setRefreshingFalse();
         //call method from MainActivity to dismissPop and setRefreshingFalse
-        MainActivity mainActivity = (MainActivity)context;
-        mainActivity.dismissPop();
+        ((MainActivity)context).dismissPop();
 
 
     }

@@ -1,12 +1,20 @@
 package com.example.egypt2.banksprice.myClass;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
+
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.egypt2.banksprice.MainActivity;
 import com.example.egypt2.banksprice.R;
 
 import java.util.ArrayList;
@@ -28,6 +36,12 @@ public class ayUI {
     static TextView ayLastUpdate;
     static ayAdapter myayAdapter;
 
+    //Navigation Drawer
+    public static  ActionBarDrawerToggle mActionBarDrawerToggle;
+    public static RelativeLayout RelativeLayout_DrawerLayout;
+    public static DrawerLayout mDrawerLayout;
+    public static  ListView ayListViewDrawerLayout;
+    public static boolean mSlideState;
 
 
     public static void  update(){
@@ -100,6 +114,58 @@ public class ayUI {
     }
 
 
+
+    public static void drawer_set(){
+
+        //create a AyINFO_Drawer_layout and put on ArrayList
+        AyINFO_Drawer_layout drawerListAdapter =new AyINFO_Drawer_layout("Currency",R.drawable.currency); // set what you want for being showing in Drawer list (link for new page)
+
+        ArrayList<AyINFO_Drawer_layout> mArrayList = new ArrayList<AyINFO_Drawer_layout>();
+
+        mArrayList.add(drawerListAdapter);
+
+        //pass and create the adapter and ArrayList to class
+        DrawerListAdapter drawerListAdapter1 = new DrawerListAdapter(getContext(),mArrayList);
+        //set the adapter to listView
+        ayListViewDrawerLayout.setAdapter(drawerListAdapter1);
+
+
+        //when clicked on item
+        ayListViewDrawerLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //call the function in main activity
+                selectItemFromDrawer(position);
+
+            }
+        });
+
+
+        set_Toggle();
+
+    }
+    static void set_Toggle(){
+        mActionBarDrawerToggle = new ActionBarDrawerToggle((MainActivity)context,mDrawerLayout,R.string.open,R.string.close);
+        mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
+        mActionBarDrawerToggle.syncState();
+        ((MainActivity)context).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+
+
+    //function for when select item from drawer_layout
+    private static void selectItemFromDrawer(int position) {
+        if (position==0) {
+            //set the Fragment to my AyFragment_cur_activity
+            Fragment fragment = new AyFragment_cur_activity();
+            //replace the main_relative_layout by my fragment
+            ((MainActivity) context).getFragmentManager().beginTransaction()
+                    .replace(R.id.main_relative_layout, fragment)
+                    .addToBackStack(null).commit();;
+//to close RelativeLayout
+            mDrawerLayout.closeDrawer(RelativeLayout_DrawerLayout);
+        }
+    }
 
 
 

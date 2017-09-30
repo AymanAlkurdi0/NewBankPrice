@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -11,8 +12,10 @@
 
         <ImageView
             android:id="@+id/imageView_item_Drawer_Layout"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             app:srcCompat="@drawable/currency"
             />
 
@@ -23,6 +26,7 @@
             android:layout_gravity="center"
             android:text="TextView"
             android:textSize="17dp"
+            android:layout_weight="0.5"
             android:textColor="@color/black"
             android:layout_margin="7dp"/>
     </LinearLayout>

@@ -3,67 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
     <group
         android:checkableBehavior="none"
+        android:orderInCategory="0"
         app:showAsAction="always">
         <item
-            android:id="@+id/action_name"
-            android:icon="@drawable/ic_menu"
-            android:title="Text to be seen by user"
-            app:showAsAction="always"
-            android:orderInCategory="0"/>
-
-
-
-        <item
-            android:id="@+id/nav_pic"
+            android:id="@+id/header_item_pic"
             android:icon="@drawable/ic_photo_camera_white_24dp"
-            android:title="pic"
-            app:showAsAction="always"/>
-
-        <item
-            android:id="@+id/nav_change"
-            android:icon="@drawable/usa"
-            android:title="change"
+            android:orderInCategory="0"
+            android:title="Text to be seen by user"
             app:showAsAction="always" />
 
 
         <item
-            android:id="@+id/nav_curency"
-            android:icon="@drawable/currency"
-            android:title="curency" />
+            android:id="@+id/header_item_refresh"
+            android:icon="@drawable/ic_refresh_white_24dp"
+            android:title="pic"
+            app:showAsAction="always" />
 
         <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="setting" />
-
+            android:id="@+id/header_item_exchange"
+            android:icon="@mipmap/ic_currency_exchange"
+            android:title="change"
+            app:showAsAction="always" />
 
     </group>
 
-    <item android:title="Notivication">
+    <!-- if I want create a group of item
 
-        <menu>
+    <item
+        android:id="@+id/nav_curency"
+        android:icon="@drawable/currency"
+        android:title="curency" />
 
-            <group
-                android:checkableBehavior="single"
-                app:showAsAction="always">
-
-                <item
-                    android:id="@+id/nav_share"
-                    android:icon="@drawable/ic_menu_share"
-                    android:title="Share" />
-                <item
-                    android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="Send" />
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="setting" />
 
 
-            </group>
 
-        </menu>
+</group>
 
-    </item>
+<item android:title="Notivication">
 
+    <menu>
+
+        <group
+            android:checkableBehavior="single"
+            app:showAsAction="always">
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+
+
+        </group>
+
+    </menu>
+
+</item>
+  -->
 </menu>

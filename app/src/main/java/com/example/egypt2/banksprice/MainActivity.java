@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -32,24 +35,35 @@ import com.example.egypt2.banksprice.myClass.ayUI;
 import java.util.ArrayList;
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 
+import static com.example.egypt2.banksprice.myClass.ayUI.drawer_set;
+
 public class MainActivity extends AppCompatActivity {
-    boolean mSlideState;
-    AyPop ayPop;
-    android.app.FragmentManager manager = getFragmentManager();
-    TextView ayLastUpdate,Curency_name;
-    ListView ayListView;
-    ImageView Curency_image;
+//Navigation Drawer
+    ActionBarDrawerToggle mActionBarDrawerToggle;
     RelativeLayout RelativeLayout_DrawerLayout;
     DrawerLayout mDrawerLayout;
+    ListView ayListViewDrawerLayout;
+    boolean mSlideState;
+    //pop Fragment
+    AyPop ayPop;
+    android.app.FragmentManager manager = getFragmentManager();
+    //Ui interface
+    TextView ayLastUpdate,Curency_name;
+    ImageView Curency_image;
+    ListView ayListView;
+    //refresh tool
     WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
+    //SharedPreferences store
     SharedPreferences sharedPreferences;
     int JobNumber =123;
+    //the list view Header in main activity
     LinearLayout header_linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //**************************************************************
+        /*
 //menu_header_custom
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayShowHomeEnabled(false);
@@ -83,8 +97,11 @@ public class MainActivity extends AppCompatActivity {
                 refresh_price_boradCast();
             }
         });
-
+*/
         //**************************************************************
+        ayListViewDrawerLayout=(ListView)findViewById(R.id.ListView_Drawer_Layout);
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.DrawerLayout);
+        RelativeLayout_DrawerLayout =(RelativeLayout)findViewById(R.id.RelativeLayout_DrawerLayout);
         mSlideState=false;
         ayLastUpdate = (TextView) findViewById(R.id.ayLastUpdate);
         ayListView = (ListView) findViewById(R.id.ayListView);
@@ -102,6 +119,14 @@ public class MainActivity extends AppCompatActivity {
         Curency_name = (TextView) view.findViewById(R.id.header_cruncey_name);
         Curency_image = (ImageView) view.findViewById(R.id.header_cruncey_image);*/
 //************************************************************************
+        //pass to another class
+        //
+        ayUI.mActionBarDrawerToggle=mActionBarDrawerToggle;
+        ayUI.RelativeLayout_DrawerLayout=RelativeLayout_DrawerLayout;
+        ayUI.mDrawerLayout=mDrawerLayout;
+        ayUI.ayListViewDrawerLayout=ayListViewDrawerLayout;
+        ayUI.mSlideState=mSlideState;
+
 //set the SharedPreferences to AySharedPreferences.class
         AySharedPreferences.sharedPreferences=sharedPreferences;
         //Set the attribute for UI class
@@ -152,59 +177,12 @@ public class MainActivity extends AppCompatActivity {
 */
 
         //************************************************************************************************************************************************************************
-        //set drawer tools
-        //conecet with UI
-
-        mDrawerLayout = (DrawerLayout)findViewById(R.id.DrawerLayout);//create this for cancel the next :)
-        RelativeLayout_DrawerLayout =(RelativeLayout)findViewById(R.id.RelativeLayout_DrawerLayout); //to be able to cancel it
-
-        //set the listView for the ListView in RelativeLayout_DrawerLayout
-        ListView ListView_Drawer_Layout=(ListView)findViewById(R.id.ListView_Drawer_Layout);
-        //create a AyINFO_Drawer_layout and put on ArrayList
-        AyINFO_Drawer_layout drawerListAdapter =new AyINFO_Drawer_layout("Currency",R.drawable.currency); // set what you want for being showing in Drawer list (link for new page)
-        ArrayList<AyINFO_Drawer_layout> myArray = new ArrayList<AyINFO_Drawer_layout>();
-        myArray.add(drawerListAdapter);
-        //pass and create the adapter and ArrayList to class
-        DrawerListAdapter drawerListAdapter1 = new DrawerListAdapter(this,myArray);
-        //set the adapter to listView
-        ListView_Drawer_Layout.setAdapter(drawerListAdapter1);
-
-
-        //when clicked on item
-        ListView_Drawer_Layout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //call the function in main activity
-                selectItemFromDrawer(position);
-
-            }
-        });
-
-
-
-
+//create the header_item_exchange
+ayUI.drawer_set();
 
 
     }
-
-
-    //function for when select item from drawer_layout
-    private void selectItemFromDrawer(int position) {
-        //set the Fragment to my AyFragment_cur_activity
-        Fragment fragment = new AyFragment_cur_activity();
-        //replace the main_relative_layout by my fragment
-        getFragmentManager().beginTransaction()
-                .replace(R.id.main_relative_layout, fragment)
-                .commit();
-
-//to close RelativeLayout
-        mDrawerLayout.closeDrawer(RelativeLayout_DrawerLayout);
-    }
-
-
-
-
-
+/*
     public void clickEventSlide( ){
         mSlideState = mDrawerLayout.isDrawerOpen(Gravity.START);
         if(mSlideState){
@@ -213,8 +191,8 @@ public class MainActivity extends AppCompatActivity {
             mDrawerLayout.openDrawer(Gravity.START);
         }}
 
+*/
 
-    /*
 //Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -227,42 +205,40 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        //Toggle clicked
+        if (ayUI.mActionBarDrawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
 
         switch (item.getItemId()){
-            case R.id.nav_change:
+            case R.id.header_item_refresh:
+                refresh_price_boradCast();
+
+                break;
+            case  R.id.header_item_exchange:
+
                 //Pop Activity
                  ayPop = new AyPop();
                 ayPop.show(manager,null);
 
                 break;
-            case  R.id.nav_curency:
-
-                //Pop Activity
-                 ayPop = new AyPop();
-                ayPop.show(manager,null);
-
-                break;
-            case  R.id.nav_pic:
+            case  R.id.header_item_pic:
                 //todo:take a pic for the price
-
-                break;
-            case  R.id.nav_setting:
-                //todo:open setting page
-
-
-                break;
-            case  R.id.nav_share:
-                //todo:set the notify
-
 
                 break;
 
         }
         return true;
     }
-*/
+
 //End Menu Code
+
+    public void refresh_price_boradCast() {
+        //send the BroadCast
+        Intent i = new Intent();
+        i.setAction("android.intent.data.complete");
+        sendBroadcast(i);
+    }
 
 
 
@@ -271,13 +247,15 @@ public class MainActivity extends AppCompatActivity {
         ayPop.dismiss();
     }
 
+
+
+    //Button in UI
     public void header_cruncey_image(View view) {
         //Pop Activity
         ayPop = new AyPop();
         ayPop.show(manager,null);
 
     }
-
     public void header_cruncey_sort_button_buy(View view) {
         AySortByRoll.setModeNumberTarget(0);
         if (AySortByRoll.getModeNumberSort()==0){
@@ -298,12 +276,7 @@ public class MainActivity extends AppCompatActivity {
         }
         ayUI.Sort_Update();
     }
-    public void refresh_price_boradCast() {
-        //send the BroadCast
-        Intent i = new Intent();
-        i.setAction("android.intent.data.complete");
-        sendBroadcast(i);
-    }
+
 
 
 
